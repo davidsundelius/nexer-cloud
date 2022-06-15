@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: 'Posts',
+  name: 'PostViewer',
   data: function() {
     return {
       posts: [],
@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     loadPosts() {
-      fetch("http://ec2-16-170-7-169.eu-north-1.compute.amazonaws.com:8000/posts").then((response) => {
+      fetch("messages.json").then((response) => {
         response.json().then((data) => {
           this.posts = data;
           this.loading = false;
@@ -38,7 +38,11 @@ export default {
     },
     addPost(message) {
       this.loading = true;
-      fetch("http://ec2-16-170-7-169.eu-north-1.compute.amazonaws.com:8000/posts", {
+      this.posts.push({
+        user: this.name,
+        message: message
+      });
+      /*fetch("https://1bbaga5v92.execute-api.eu-north-1.amazonaws.com/default/Nexertest", {
         method: 'POST',
         body: JSON.stringify({
           user: this.name,
@@ -52,7 +56,7 @@ export default {
       }).finally(() => {
         this.newMessage="";
         this.loadPosts();
-      });
+      });*/
     }
   }
 }

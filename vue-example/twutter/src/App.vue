@@ -1,17 +1,15 @@
 <template>
-  <div id="app">
-    <h1>Twutter</h1>
-    <Posts />
-  </div>
+  <img alt="Vue logo" src="./assets/logo.png">
+  <PostViewer />
 </template>
 
 <script>
-import Posts from './components/Posts.vue'
+import PostViewer from './components/PostViewer.vue'
 
 export default {
   name: 'App',
   components: {
-    Posts
+    PostViewer
   }
 }
 </script>
@@ -24,10 +22,5 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-}
-
-.test {
-  font-size: 58px;
-  color: blue;
 }
 </style>
